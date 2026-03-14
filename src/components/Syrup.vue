@@ -2,11 +2,16 @@
   <div class="syrup"></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { computed } from "vue";
+  import { currentSyrup } from "../stores/beverage";
+  const bgColor = computed(() => currentSyrup.value.color);
+</script>
+
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);
-  background-color: #c6c6c6;
+  background-color: v-bind(bgColor);
   position: relative;
   width: 100%;
   height: 20%;

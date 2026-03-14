@@ -65,6 +65,7 @@
 <script setup lang="ts">
 import Beverage from "./components/Beverage.vue";
 import { temps, creamers, bases, syrups, currentTemp, currentCreamer, currentBase, currentSyrup } from "./stores/beverage";
+
 </script>
 
 <style lang="scss">
