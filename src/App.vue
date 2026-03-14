@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Beverage :isIced="currentTemp === 'Cold'" />
+    <Beverage 
+    :isIced="currentTemp === 'Cold'" 
+    :creamerSelected="currentCreamer.name !== 'No Cream'"
+    :syrupSelected="currentSyrup.name !== 'No Syrup'" />
     <ul>
       <li>
         <template v-for="temp in temps" :key="temp">
@@ -17,20 +20,6 @@
         </template>
       </li>
       <li>
-        <template v-for="creamer in creamers" :key="creamer.name">
-          <label>
-            <input
-              type="radio"
-              name="creamer"
-              :id="`r${creamer}`"
-              :value="creamer"
-              v-model="currentCreamer"
-            />
-            {{ creamer.name }}
-          </label>
-        </template>
-      </li>
-      <li>
         <template v-for="base in bases" :key="base.name">
           <label>
             <input
@@ -41,6 +30,20 @@
               v-model="currentBase"
             />
             {{ base.name }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <template v-for="creamer in creamers" :key="creamer.name">
+          <label>
+            <input
+              type="radio"
+              name="creamer"
+              :id="`r${creamer}`"
+              :value="creamer"
+              v-model="currentCreamer"
+            />
+            {{ creamer.name }}
           </label>
         </template>
       </li>

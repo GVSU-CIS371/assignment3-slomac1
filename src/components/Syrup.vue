@@ -9,9 +9,18 @@
 </script>
 
 <style lang="scss" scoped>
+@mixin syrup-layer($color) {
+  background: repeating-linear-gradient(
+    45deg,
+    white,
+    white 10px,
+    $color 10px,
+    $color 20px
+  );
+}
 .syrup {
   transform: translateY(400%);
-  background-color: v-bind(bgColor);
+  @include syrup-layer(v-bind(bgColor));
   position: relative;
   width: 100%;
   height: 20%;
